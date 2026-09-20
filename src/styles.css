@@ -1,0 +1,150 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Tution Zone portal design system — "frosted glass calm".
+ * Deep navy field, aqua/violet/sky auras, Sora display + Manrope text.
+ * All colors are oklch tokens. Never hardcode colors in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  --color-aqua: var(--aqua);
+  --color-violet: var(--violet);
+  --color-sky: var(--sky);
+  --color-deep: var(--deep);
+  --color-present: var(--aqua);
+  --color-absent: var(--absent);
+}
+
+:root {
+  --radius: 1rem;
+
+  --deep: oklch(0.24 0.055 258);
+  --background: oklch(0.22 0.05 258);
+  --foreground: oklch(0.985 0.005 250);
+
+  --card: oklch(0.985 0.005 250 / 8%);
+  --card-foreground: oklch(0.985 0.005 250);
+  --popover: oklch(0.26 0.05 258);
+  --popover-foreground: oklch(0.985 0.005 250);
+
+  --aqua: oklch(0.81 0.128 182);
+  --violet: oklch(0.63 0.21 293);
+  --sky: oklch(0.76 0.13 233);
+  --absent: oklch(0.72 0.16 15);
+
+  --primary: oklch(0.81 0.128 182);
+  --primary-foreground: oklch(0.22 0.05 258);
+  --secondary: oklch(0.985 0.005 250 / 10%);
+  --secondary-foreground: oklch(0.985 0.005 250);
+  --muted: oklch(0.985 0.005 250 / 8%);
+  --muted-foreground: oklch(0.985 0.005 250 / 55%);
+  --accent: oklch(0.985 0.005 250 / 12%);
+  --accent-foreground: oklch(0.985 0.005 250);
+  --destructive: oklch(0.65 0.2 20);
+  --destructive-foreground: oklch(0.985 0.005 250);
+  --border: oklch(0.985 0.005 250 / 15%);
+  --input: oklch(0.985 0.005 250 / 12%);
+  --ring: oklch(0.81 0.128 182 / 60%);
+
+  --gradient-field: radial-gradient(
+    120% 90% at 50% -10%,
+    oklch(0.32 0.06 250) 0%,
+    oklch(0.24 0.055 258) 55%,
+    oklch(0.19 0.045 258) 100%
+  );
+  --gradient-key: linear-gradient(135deg, var(--aqua), var(--sky));
+  --shadow-glass: 0 20px 60px -30px oklch(0.1 0.04 258 / 80%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html,
+  body {
+    min-height: 100%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    background-image: var(--gradient-field);
+    background-attachment: fixed;
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Frosted panel — the core surface of the portal */
+@utility glass {
+  background-color: oklch(0.985 0.005 250 / 8%);
+  border: 1px solid oklch(0.985 0.005 250 / 14%);
+  border-radius: var(--radius-2xl);
+  backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: var(--shadow-glass);
+}
+
+@utility glass-soft {
+  background-color: oklch(0.985 0.005 250 / 6%);
+  border: 1px solid oklch(0.985 0.005 250 / 10%);
+  border-radius: var(--radius-xl);
+}
+
+@utility aura {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+@utility eyebrow {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}

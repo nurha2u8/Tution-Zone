@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1789849979339,
+      "tag": "0000_teacher_student_portal",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1789912360530,
+      "tag": "0001_teacher_codes_departments_notices",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1789914549378,
+      "tag": "0002_prevent_overlapping_classes",
+      "breakpoints": true
+    }
+  ]
+}
